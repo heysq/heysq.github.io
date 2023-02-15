@@ -1,1 +1,0 @@
-# heysq.github.io
