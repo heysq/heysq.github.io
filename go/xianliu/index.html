@@ -2692,7 +2692,7 @@
 <li>可以在清零的前一秒和后一秒，两秒内发送阈值乘2的请求</li>
 <li>一旦请求数量瞬间变多，还是会有崩溃的风险</li>
 </ul>
-<p><img alt="" src="/images/go/count.png" /></p>
+<p><img alt="" src="http://image.heysq.com/wiki/go/count.png" /></p>
 <h4 id="_5">简单代码实现</h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">type</span><span class="w"> </span><span class="nx">LimitRate</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="nx">rate</span><span class="w">  </span><span class="kt">int</span><span class="w">           </span><span class="c1">//阀值</span>
@@ -2920,7 +2920,7 @@
 <li>令牌桶空闲时，可以攒着最高的限额数的令牌</li>
 <li>由于木桶内只要有令牌，请求就可以被处理，所以令牌桶算法可以支持突发流量</li>
 </ul>
-<p><img alt="" src="/images/go/lingpaitong.png" /></p>
+<p><img alt="" src="http://image.heysq.com/wiki/go/lingpaitong.png" /></p>
 <h4 id="_16">参数设置</h4>
 <ul>
 <li>木桶的容量  - 考虑业务逻辑的资源消耗和机器能承载并发处理多少业务逻辑。</li>

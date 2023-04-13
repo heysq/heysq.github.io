@@ -2583,9 +2583,9 @@
 <h3 id="_6">结构体类型的内存布局</h3>
 <ul>
 <li>将结构体字段平铺的形式，存放在一个连续内存块中，理想情况
-<img alt="" src="/images/go/struct_ram.jpg" /></li>
+<img alt="" src="http://image.heysq.com/wiki/go/struct_ram.jpg" /></li>
 <li>现实实际存储，需要在字段之间添加padding，为了内存对齐
-<img alt="" src="/images/go/struct_padding.jpg" /></li>
+<img alt="" src="http://image.heysq.com/wiki/go/struct_padding.jpg" /></li>
 <li>使用<code>unsafe.Sizeof(t)</code> 获取结构体占用空间大小</li>
 <li>使用<code>unsafe.Offsetof(t.Fn)</code> 获取字段Fn在内存中相对于t起始地址的偏移量</li>
 </ul>
@@ -2606,7 +2606,7 @@
 <a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="nx">u</span><span class="w"> </span><span class="kt">uint16</span><span class="w"> </span><span class="c1">// 2字节，对齐需要填充6字节</span>
 <a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="p">}</span>
 </code></pre></div>
-<img alt="" src="/images/go/neicunduiqi.jpg" /></li>
+<img alt="" src="http://image.heysq.com/wiki/go/neicunduiqi.jpg" /></li>
 </ul>
 <h3 id="_9">内存对齐</h3>
 <ul>
@@ -2616,7 +2616,7 @@
 <li>为了减少 CPU 访问内存的次数，加大 CPU 访问内存的吞吐量。同样读取 8 个字节的数据，一次读取 4 个字节只需要读取 2 次</li>
 <li>CPU 始终以字长访问内存，如果不进行内存对齐，很可能增加 CPU 访问内存的次数</li>
 <li>内存对齐对实现变量的原子性操作也有好处，每次内存访问是原子的，如果变量的大小不超过字长，那么内存对齐后，对该变量的访问就是原子的
-<img alt="" src="/images/go/neicunduiqijuli.png" /></li>
+<img alt="" src="http://image.heysq.com/wiki/go/neicunduiqijuli.png" /></li>
 </ul>
 <h4 id="_10">内存对齐倍数</h4>
 <ul>

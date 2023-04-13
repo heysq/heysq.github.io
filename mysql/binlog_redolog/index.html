@@ -2403,7 +2403,7 @@
 <li>write 是将binlog cache的内容放入到文件系统的page cache</li>
 <li>fsync 会将page cache 数据持久化道磁盘</li>
 </ul>
-<p><img alt="" src="/images/mysql/binlog.png" /></p>
+<p><img alt="" src="http://image.heysq.com/wiki/mysql/binlog.png" /></p>
 <h3 id="sync_binlog">sync_binlog</h3>
 <ul>
 <li>sync-binlog为0，每次事务提交都会write到page cache，不会fsync</li>
@@ -2450,7 +2450,7 @@
 <ul>
 <li>每次redo log 落盘时，携带多个提交事务的redo log buffer</li>
 <li>binlog也可以组提交
-<img alt="" src="/images/mysql/group_commit.png" /></li>
+<img alt="" src="http://image.heysq.com/wiki/mysql/group_commit.png" /></li>
 </ul>
 <h3 id="binlog_1">binlog组提交</h3>
 <ul>

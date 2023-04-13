@@ -2563,7 +2563,7 @@
 <li>内存中的指令，数据会被加载到L1-L3Cache中，而不是直接由CPU访问内存去拿</li>
 <li>由特定的SRAM（静态随机存储器）组成的物理芯片</li>
 <li>现代 CPU 中大量的空间已经被 SRAM 占据，图中用红色框出的部分就是 CPU 的 L3 Cache 芯片
-<img alt="" src="/images/jsjzc/cpucache.jpg" /></li>
+<img alt="" src="http://image.heysq.com/wiki/jsjzc/cpucache.jpg" /></li>
 </ul>
 <h3 id="cache-line">Cache Line</h3>
 <ul>
@@ -2592,13 +2592,13 @@
 <ul>
 <li>主内存被分为32块，然后cache中有8个缓存块</li>
 <li>访问第21号内存块，就回去查询<code>21mod8</code>也就是第5块缓存块的位置
-<img alt="" src="/images/jsjzc/zhijieyingshe.png" /></li>
+<img alt="" src="http://image.heysq.com/wiki/jsjzc/zhijieyingshe.png" /></li>
 </ul>
 <h4 id="_3">优化</h4>
 <ul>
 <li>实际缓存块会分配2的N次方个</li>
 <li>查询缓存块的位置就是内存块的低N为就可以
-<img alt="" src="/images/jsjzc/neicunyouhua.png" /></li>
+<img alt="" src="http://image.heysq.com/wiki/jsjzc/neicunyouhua.png" /></li>
 </ul>
 <h4 id="_4">确定缓存块的地址来自确定的内存块</h4>
 <ul>
@@ -2618,10 +2618,10 @@
 <ul>
 <li>CPU 在读取数据的时候，并不是要读取一整个 Block，而是读取一个他需要的数据片段。这样的数据，我们叫作 CPU 里的一个字（Word）</li>
 <li>具体是哪个字，就用这个字在整个 Block 里面的位置来决定，这个位置就是偏移量
-<img alt="" src="/images/jsjzc/fangcundizhi.png" /></li>
+<img alt="" src="http://image.heysq.com/wiki/jsjzc/fangcundizhi.png" /></li>
 </ul>
 <h3 id="cpu">CPU高速缓存层级结构</h3>
-<p><img alt="" src="/images/jsjzc/cpucengjijiegou.jpeg" /></p>
+<p><img alt="" src="http://image.heysq.com/wiki/jsjzc/cpucengjijiegou.jpeg" /></p>
 <h3 id="_7">高速缓存写入策略</h3>
 <ul>
 <li>写直达</li>
@@ -2633,7 +2633,7 @@
 <li>每次数据写入都要写入到主内存里面</li>
 <li>写数据时判断cache里有没有命中，有的话更新cache中的数据后继续写入到主内存</li>
 <li>每次都要写主内存，这个写策略很慢
-<img alt="" src="/images/jsjzc/xiezhida.jpeg" /></li>
+<img alt="" src="http://image.heysq.com/wiki/jsjzc/xiezhida.jpeg" /></li>
 </ul>
 <h4 id="_9">写回</h4>
 <ul>
@@ -2643,12 +2643,12 @@
 <li>数据写入到CacheBlock时，同时会标记Block为脏状态</li>
 <li>下次再写入时，会被刷到主内存</li>
 <li>加载内存到Block时，也会加一个同步脏数据到主内存的过程
-<img alt="" src="/images/jsjzc/xiehui.jpeg" /></li>
+<img alt="" src="http://image.heysq.com/wiki/jsjzc/xiehui.jpeg" /></li>
 </ul>
 <h3 id="_10">缓存一致性问题</h3>
 <ul>
 <li>CPU核心进行数据更改后，其他核心与更改的核心的cache中数据是不一致的
-<img alt="" src="/images/jsjzc/hcbyz.jpeg" /></li>
+<img alt="" src="http://image.heysq.com/wiki/jsjzc/hcbyz.jpeg" /></li>
 </ul>
 <h4 id="_11">缓存不一致解决</h4>
 <ul>
@@ -2658,7 +2658,7 @@
 </blockquote>
 </li>
 </ul>
-<p><img alt="" src="/images/jsjzc/swcxh.jpeg" /></p>
+<p><img alt="" src="http://image.heysq.com/wiki/jsjzc/swcxh.jpeg" /></p>
 <h3 id="_12">总线嗅探机制</h3>
 <ul>
 <li>总线嗅探机制解决多个CPU核心之间的数据传播机制</li>
@@ -2670,7 +2670,7 @@
 <li>CPU核心写入Cache之后，会广播一个失效请求告诉其他CPU核心，其他CPU核心，根据内容标记自己本地的Cache中的缓存数据为失效状态</li>
 <li>写广播（Write Broadcast）的协议。一个写入请求广播到所有的 CPU 核心，同时更新各个核心里的 Cache</li>
 <li>写广播在实现上很简单，但是写广播需要占用更多的总线带宽。写失效只需要告诉其他的 CPU 核心，哪一个内存地址的缓存失效了，但是写广播还需要把对应的数据传输给其他 CPU 核心
-<img alt="" src="/images/jsjzc/xieshixiao.jpeg" /></li>
+<img alt="" src="http://image.heysq.com/wiki/jsjzc/xieshixiao.jpeg" /></li>
 </ul>
 <h3 id="mesi_1">MESI 内容</h3>
 <ul>
@@ -2678,7 +2678,7 @@
 <li>E：代表独占 Exclusive，cache line只加载了当前CPU核所拥有的Cache里，其他的CPU核并没有加载对应的数据到自己的Cache里，这个时候，更新cache block写入数据，不需要更新到其他CPU核心</li>
 <li>S：代表共享 Shared，独占状态下，核心接收到主线的其他CPU也读取数据到自己的Cache中的请求，就会变成共享状态。当要更新cache中的数据时，需要获取当前对应的cache block数据的所有权，一般发送一个广播操作<code>RFO（Request For Ownership）</code>，通知其他CPU核心将对应的Cache标记为失效状态</li>
 <li>I：代表已失效 Invalidated，cache line中的block，数据已经失效了，数据不可信
-<img alt="" src="/images/jsjzc/mesi.jpeg" /></li>
+<img alt="" src="http://image.heysq.com/wiki/jsjzc/mesi.jpeg" /></li>
 </ul>
 
 

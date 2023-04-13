@@ -2498,17 +2498,17 @@
 <ul>
 <li>IEEE754国际标准规定，32位的浮点数，最高的1位是符号位s，接着的8位是指数E，剩下的23位为有效数字M</li>
 </ul>
-<p><img alt="" src="/images/jsjzc/danjingdu.png" /></p>
+<p><img alt="" src="http://image.heysq.com/wiki/jsjzc/danjingdu.png" /></p>
 <ul>
 <li>(-1)^s表示符号位，当s=0，V为正数；当s=1，V为负数</li>
 <li>M表示有效数字，大于等于1，小于2</li>
 <li>2^E表示指数位</li>
 </ul>
-<p><img alt="" src="/images/jsjzc/ieee754fudianshu.png" /></p>
+<p><img alt="" src="http://image.heysq.com/wiki/jsjzc/ieee754fudianshu.png" /></p>
 <h4 id="_4">双精度浮点数</h4>
 <ul>
 <li>对于64位的浮点数，最高的1位是符号位S，接着的11位是指数E，剩下的52位为有效数字M
-<img alt="" src="/images/jsjzc/shuangjingdu.png" /></li>
+<img alt="" src="http://image.heysq.com/wiki/jsjzc/shuangjingdu.png" /></li>
 </ul>
 <h4 id="ieeem">IEEE规定对M的规定</h4>
 <ul>
@@ -2528,7 +2528,7 @@
 <li>E不全为0或不全为1。这时，浮点数就采用上面的规则表示，即指数E的计算值减去127（或1023），得到真实值，再将有效数字M前加上第一位的1</li>
 <li>E全为0。这时，浮点数的指数E等于1-127（或者1-1023），有效数字M不再加上第一位的1，而是还原为0.xxxxxx的小数。这样做是为了表示±0，以及接近于0的很小的数字</li>
 <li>E全为1。这时，如果有效数字M全为0，表示±无穷大（正负取决于符号位s）；如果有效数字M不全为0，表示这个数不是一个数（NaN）
-<img alt="" src="/images/jsjzc/fudianshunan.jpeg" /></li>
+<img alt="" src="http://image.heysq.com/wiki/jsjzc/fudianshunan.jpeg" /></li>
 </ul>
 <h3 id="_5">小数换成二进制方式</h3>
 <ul>
@@ -2537,7 +2537,7 @@
 <li>如果不超过1，就记下0</li>
 </ul>
 <h4 id="01">0.1转成二进制</h4>
-<p><img alt="" src="/images/jsjzc/01erjinzhi.jpeg" /></p>
+<p><img alt="" src="http://image.heysq.com/wiki/jsjzc/01erjinzhi.jpeg" /></p>
 <h4 id="91">9.1 二进制</h4>
 <ul>
 <li>1001.000110011…这样一个二进制表示</li>

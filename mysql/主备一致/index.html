@@ -2444,7 +2444,7 @@
 <li><code>sql_thread</code>读取中转日志，解析并执行日志里的命令</li>
 <li>主库内部有一个线程，专门用来服务某一个从库的长链接 </li>
 </ol>
-<p><img alt="" src="/images/mysql/zhubeiliucheng.png" /></p>
+<p><img alt="" src="http://image.heysq.com/wiki/mysql/zhubeiliucheng.png" /></p>
 <h3 id="binlog">binlog 格式</h3>
 <ul>
 <li>statement</li>
@@ -2452,7 +2452,7 @@
 <li>mixed</li>
 </ul>
 <h3 id="statement-binlog">statement binlog</h3>
-<p><img alt="statement_binlog" src="/images/mysql/statement_binlog.png" /></p>
+<p><img alt="statement_binlog" src="http://image.heysq.com/wiki/mysql/statement_binlog.png" /></p>
 <ul>
 <li>SET @@SESSION.GTID_NEXT='ANONYMOUS'</li>
 <li>BEGIN和COMMIT对应的是一事务的开始和提交，中间记录的是一个事务</li>
@@ -2471,7 +2471,7 @@ redo log里面有一个事务是prepare状态，但不确定commit状态，可�
 <li>使用row格式的binlog可以控制删除数据的行</li>
 </ul>
 <h3 id="row-binlog">row binlog</h3>
-<p><img alt="row_binlog" src="/images/mysql/row_binlog.png" /></p>
+<p><img alt="row_binlog" src="http://image.heysq.com/wiki/mysql/row_binlog.png" /></p>
 <ul>
 <li>需要借助mysqlbinlog工具解析产生的binlog内容</li>
 <li>记录真实变动行的主键id和数据表信息</li>
@@ -2479,7 +2479,7 @@ redo log里面有一个事务是prepare状态，但不确定commit状态，可�
 <li>binlog_row_image配置<ul>
 <li>FULL，记录所以字段</li>
 <li>MINIMAL，记录必要的变更字段
-<img alt="mysql_binlog_row" src="/images/mysql/mysql_binlog_row.png" /></li>
+<img alt="mysql_binlog_row" src="http://image.heysq.com/wiki/mysql/mysql_binlog_row.png" /></li>
 </ul>
 </li>
 </ul>
@@ -2497,7 +2497,7 @@ redo log里面有一个事务是prepare状态，但不确定commit状态，可�
 <li>直接应用row的反向操作可以进行数据恢复</li>
 </ul>
 <h3 id="binlog_1">binlog同步设置时间戳</h3>
-<p><img alt="binlog_set_timestamp" src="/images/mysql/binlog_set_timestamp.png" /></p>
+<p><img alt="binlog_set_timestamp" src="http://image.heysq.com/wiki/mysql/binlog_set_timestamp.png" /></p>
 <ul>
 <li>即使记录格式为<code>statement</code>在从库上执行也不会影响时间</li>
 </ul>

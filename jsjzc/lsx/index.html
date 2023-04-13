@@ -2548,7 +2548,7 @@
 <li>每个指令的操作不一样，决定了执行时长也不一样</li>
 <li>于是单指令周期处理器的时钟周期就是最长的指令运行所需要的时间</li>
 <li>快速执行完成的指令，需要等待满一个时钟周期，才能执行下一条指令
-<img alt="" src="/images/jsjzc/danzhilingchuliqi.jpeg" /></li>
+<img alt="" src="http://image.heysq.com/wiki/jsjzc/danzhilingchuliqi.jpeg" /></li>
 </ul>
 <h3 id="-">指令流水钱-提高执行速度</h3>
 <ul>
@@ -2558,8 +2558,8 @@
 <li>五级流水线：把“执行指令”拆分成“ALU 计算（指令执行）- 内存访问 - 数据写回”</li>
 <li>如果某一个操作步骤的时间太长，就可以考虑把这个步骤，拆分成更多的步骤，让所有步骤需要执行的时间尽量都差不多长</li>
 <li>现代的 ARM 或者 Intel 的 CPU，流水线级数都已经到了 14 级
-<img alt="" src="/images/jsjzc/liushuixianshiyi.jpeg" />
-<img alt="" src="/images/jsjzc/liushuixian.jpeg" /></li>
+<img alt="" src="http://image.heysq.com/wiki/jsjzc/liushuixianshiyi.jpeg" />
+<img alt="" src="http://image.heysq.com/wiki/jsjzc/liushuixian.jpeg" /></li>
 </ul>
 <h4 id="_2">流水线级数增多带来的问题</h4>
 <ul>
@@ -2567,7 +2567,7 @@
 <li>在下一个时钟周期，交给下一个流水线级去处理。所以，每增加一级的流水线，就要多一级写入到流水线寄存器的操作</li>
 <li>级数变多后，写入流水线寄存器的时间占比会越来越高，提升性能性价比不高</li>
 <li>指令依赖问题广泛存在
-<img alt="" src="/images/jsjzc/liushuixianwenti.jpeg" /></li>
+<img alt="" src="http://image.heysq.com/wiki/jsjzc/liushuixianwenti.jpeg" /></li>
 </ul>
 <h3 id="_3">流水线三大冒险</h3>
 <ul>
@@ -2583,11 +2583,11 @@
 <blockquote>
 <p>对于访问内存数据和取指令的冲突，一个直观的解决方案就是把我们的内存分成两部分，让它们各有各的地址译码器。这两部分分别是存放指令的程序内存和存放数据的数据内存。这种把内存拆成两部分的解决方案，在计算机体系结构里叫作哈佛架构（Harvard Architecture）</p>
 </blockquote>
-<p><img alt="" src="/images/jsjzc/jiegoumaoxian.jpeg" /></p>
+<p><img alt="" src="http://image.heysq.com/wiki/jsjzc/jiegoumaoxian.jpeg" /></p>
 <ul>
 <li>现代CPU混合架构</li>
 <li>借鉴了哈佛结构的思路，现代的 CPU 虽然没有在内存层面进行对应的拆分，却在 CPU 内部的高速缓存部分进行了区分，把高速缓存分成了指令缓存（Instruction Cache）和数据缓存（Data Cache）两部分
-<img alt="" src="/images/jsjzc/hunhejiagou.jpeg" /></li>
+<img alt="" src="http://image.heysq.com/wiki/jsjzc/hunhejiagou.jpeg" /></li>
 </ul>
 <h3 id="_5">数据冒险</h3>
 <ul>
@@ -2602,7 +2602,7 @@
 <li>也叫流水线冒泡</li>
 <li>让整个流水线停顿一个或者多个周期</li>
 <li>实际cpu是在执行后面的操作步骤前面，插入一个 NOP 操作，也就是执行一个其实什么都不干的操作
-<img alt="" src="/images/jsjzc/liushuixiantingdun.jpeg" /></li>
+<img alt="" src="http://image.heysq.com/wiki/jsjzc/liushuixiantingdun.jpeg" /></li>
 </ul>
 <h3 id="nop">NOP浪费时钟周期示意</h3>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>add $t0, $s2,$s1
@@ -2611,7 +2611,7 @@
 - 第一条指令，把 s1 和 s2 寄存器里面的数据相加，存入到 t0 这个寄存器里面
 - 第二条指令，把 s1 和 t0 寄存器里面的数据相加，存入到 s2 这个寄存器里面
 - 两个指令是有原来关系的，第二条指令依赖第一条指令将结果写回到寄存器t0，于是通过插入nop，导致流水线停顿，来解决数据冒险
-<img alt="" src="/images/jsjzc/nopshiyi.jpeg" /></p>
+<img alt="" src="http://image.heysq.com/wiki/jsjzc/nopshiyi.jpeg" /></p>
 <h4 id="_7">操作数前推或者操作数旁路</h4>
 <ul>
 <li>通过 NOP 操作进行对齐，在流水线里，就不会遇到资源竞争产生的结构冒险问题了，除了可以解决结构冒险之外，这个 NOP 操作，也就是流水线停顿插入的对应操作</li>
@@ -2619,7 +2619,7 @@
 <li>完全可以在第一条指令的执行阶段完成之后，直接将结果数据传输给到下一条指令的 ALU</li>
 <li>下一条指令不需要再插入两个 NOP 阶段，就可以继续正常走到执行阶段</li>
 <li>在硬件层面制造一条旁路，让一条指令的计算结果，可以直接传输给下一条指令
-<img alt="" src="/images/jsjzc/caozuoshuqiantuishiyi.jpeg" /></li>
+<img alt="" src="http://image.heysq.com/wiki/jsjzc/caozuoshuqiantuishiyi.jpeg" /></li>
 </ul>
 <h3 id="_8">指令乱序执行</h3>
 <ul>
@@ -2629,7 +2629,7 @@
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">e</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">z</span>
 </code></pre></div>
-<img alt="" src="/images/jsjzc/luanxuzhixingshiyi.jpeg" /></li>
+<img alt="" src="http://image.heysq.com/wiki/jsjzc/luanxuzhixingshiyi.jpeg" /></li>
 </ul>
 <h4 id="cpu">乱序执行CPU流水线</h4>
 <ul>
@@ -2637,7 +2637,7 @@
 <li>每个译码后的指令会排队等待依赖数据的输入</li>
 <li>符合执行条件的指令会到功能单元就是ALU中进行指令执行</li>
 <li>执行完成后会到重拍缓冲区进行指令结果顺序重排
-<img alt="" src="/images/jsjzc/luanxuzhixing.jpeg" /></li>
+<img alt="" src="http://image.heysq.com/wiki/jsjzc/luanxuzhixing.jpeg" /></li>
 </ul>
 <h3 id="_9">分支预测</h3>
 <h4 id="_10">静态分支预测</h4>
@@ -2646,7 +2646,7 @@
 <li>顾名思义，自然就是仍然按照顺序，把指令往下执行。其实就是 CPU 预测，条件跳转一定不发生。这样的预测方法，其实也是一种静态预测技术</li>
 <li>如果分支预测失败了，那就把后面已经取出指令已经执行的部分，给丢弃掉。这个丢弃的操作，在流水线里面，叫作 Zap 或者 Flush</li>
 <li>CPU 不仅要执行后面的指令，对于这些已经在流水线里面执行到一半的指令，还需要做对应的清除操作。比如，清空已经使用的寄存器里面的数据等
-<img alt="" src="/images/jsjzc/zapflush.jpeg" /></li>
+<img alt="" src="http://image.heysq.com/wiki/jsjzc/zapflush.jpeg" /></li>
 </ul>
 <h4 id="_11">动态分支预测</h4>
 <h5 id="_12">一级分支预测</h5>
@@ -2658,7 +2658,7 @@
 <ul>
 <li>也叫 2 比特饱和计数</li>
 <li>添加状态机
-<img alt="" src="/images/jsjzc/shuangmotai.jpeg" /></li>
+<img alt="" src="http://image.heysq.com/wiki/jsjzc/shuangmotai.jpeg" /></li>
 </ul>
 
 

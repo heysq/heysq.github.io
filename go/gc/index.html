@@ -2440,16 +2440,16 @@
 <ul>
 <li>
 <p>mutator 指的是我们的应用，也就是 application，我们将堆上的对象看作一个图，跳出应用来看的话，应用的代码就是在不停地修改这张堆对象图里的指向关系
-<img alt="" src="/images/go/mutator.png" /></p>
+<img alt="" src="http://image.heysq.com/wiki/go/mutator.png" /></p>
 </li>
 <li>
 <p>allocator 就很好理解了，指的是内存分配器，应用需要内存的时候都要向 allocator 申请。allocator 要维护好内存分配的数据结构，在多线程场景下工作的内存分配器还需要考虑高并发场景下锁的影响，并针对性地进行设计以降低锁冲突</p>
 </li>
 <li>collector 是垃圾回收器。死掉的堆对象、不用的堆内存都要由 collector 回收，最终归还给操作系统。当 GC 扫描流程开始执行时，collector 需要扫描内存中存活的堆对象，扫描完成后，未被扫描到的对象就是无法访问的堆上垃圾，需要将其占用内存回收掉
-<img alt="" src="/images/go/neicunguanli.png" /></li>
+<img alt="" src="http://image.heysq.com/wiki/go/neicunguanli.png" /></li>
 </ul>
 <h3 id="tcmalloc">tcmalloc</h3>
-<p><img alt="" src="/images/go/tcmalloc.png" /></p>
+<p><img alt="" src="http://image.heysq.com/wiki/go/tcmalloc.png" /></p>
 <h3 id="go">Go内存分配过程分类</h3>
 <ul>
 <li>tiny ：size &lt; 16 bytes &amp;&amp; has no pointer(noscan)</li>
@@ -2463,17 +2463,17 @@
 <li>一个或多个 page 可以组成一个 mspan</li>
 <li>每个 mspan 可以按照 sizeclass 再划分成多个 element</li>
 <li>同样大小的 mspan 又分为 scan 和 noscan 两种，分别对应内部有指针的 object 和内部没有指针的 object
-<img alt="" src="/images/go/neicunshuju.png" /></li>
+<img alt="" src="http://image.heysq.com/wiki/go/neicunshuju.png" /></li>
 </ul>
 <h3 id="mspan">mspan</h3>
 <ul>
 <li>每一个 mspan 都有一个 allocBits 结构</li>
 <li>从 mspan 里分配 element 时，只要将 mspan 中对应该 element 位置的 bit 位置一就可以，其实就是将 mspan 对应 allocBits 中的对应 bit 位置一</li>
 <li>每一个 mspan 都会对应一个 allocBits 结构
-<img alt="" src="/images/go/mspanbitmap.png" /></li>
+<img alt="" src="http://image.heysq.com/wiki/go/mspanbitmap.png" /></li>
 </ul>
 <h3 id="gc">GC 流程</h3>
-<p><img alt="" src="/images/go/gc.png" /></p>
+<p><img alt="" src="http://image.heysq.com/wiki/go/gc.png" /></p>
 <h3 id="_3">三色标记</h3>
 <ul>
 <li>黑表示已经扫描完毕，子节点扫描完毕（gcmarkbits = 1，且在队列外）</li>
@@ -2483,9 +2483,9 @@
 <h3 id="_4">解决错标漏标，引入三色不变性</h3>
 <ul>
 <li>强三色不变性 strong tricolor invariant：黑色对象不能直接引用白色对象
-<img alt="" src="/images/go/qiangsanse.png" /></li>
+<img alt="" src="http://image.heysq.com/wiki/go/qiangsanse.png" /></li>
 <li>弱三色不变性 weak tricolor invariant：黑色对象可以引用白色对象，但白色对象必须有能从灰色对象可达的路径
-<img alt="" src="/images/go/ruosanse.png" /></li>
+<img alt="" src="http://image.heysq.com/wiki/go/ruosanse.png" /></li>
 </ul>
 <h3 id="go_1">Go实现三色不变性，引入写屏障</h3>
 <ul>
@@ -2494,7 +2494,7 @@
 <li>然后所有的堆上指针修改操作在修改之前便会额外调用 runtime.gcWriteBarrier</li>
 <li>栈上的对象市不会开启写屏障的</li>
 <li>混合写屏障，指针断开的老对象和新对象都标灰的实现
-<img alt="" src="/images/go/hunhexiepingzhang.png" /></li>
+<img alt="" src="http://image.heysq.com/wiki/go/hunhexiepingzhang.png" /></li>
 </ul>
 <h3 id="_5">常见的写屏障</h3>
 <ul>
@@ -2510,7 +2510,7 @@
 <ul>
 <li>GC 的标记流程结束之后，sweep goroutine 就会被唤醒，进行清扫工作</li>
 <li>循环执行 sweepone -&gt; sweep。针对每个 mspan，sweep.g 的工作是将标记期间生成的 bitmap 替换掉分配时使用的 bitmap
-<img alt="" src="/images/go/sweepg.png" /></li>
+<img alt="" src="http://image.heysq.com/wiki/go/sweepg.png" /></li>
 <li>
 <p>根据 mspan 中的槽位情况决定该 mspan 的去向</p>
 <ul>
@@ -2526,7 +2526,7 @@
 <li>pageAlloc.scavengeRangeLocked</li>
 <li>sysUnused</li>
 <li>madvise
-<img alt="" src="/images/go/madvise.png" /></li>
+<img alt="" src="http://image.heysq.com/wiki/go/madvise.png" /></li>
 </ul>
 </li>
 </ul>
